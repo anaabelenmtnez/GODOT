@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=3 uid="uid://bpnqumk7c8vbm"]
+
+[ext_resource type="Script" path="res://opciones.gd" id="1_u1sbp"]
+[ext_resource type="Texture2D" uid="uid://d0owrqgtgr01d" path="res://FOTO/38864927-seamless-paisaje-de-dibujos-animados-vector-de-fondo-sin-fin-con-la-hierba-bosques-montañas-y.jpg" id="2_xasry"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eo3m6"]
+bg_color = Color(0.125041, 0.617223, 0.795465, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tmhad"]
+bg_color = Color(0.164232, 0.655761, 0.830248, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ohtug"]
+bg_color = Color(0.238944, 0.646093, 0.850515, 1)
+
+[node name="OPCIONES" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u1sbp")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.514716, 0.970171, 0.938174, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+offset_right = 450.0
+offset_bottom = 338.0
+scale = Vector2(2.56058, 1.91009)
+texture = ExtResource("2_xasry")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -133.0
+offset_top = -125.5
+offset_right = 133.0
+offset_bottom = 125.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 24
+
+[node name="VOLUMEN" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxFlat_eo3m6")
+text = "VOLUMEN"
+
+[node name="RESOLUCION" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxFlat_tmhad")
+text = "RESOLUCION"
+
+[node name="ATRAS" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxFlat_ohtug")
+text = "ATRAS"
+
+[connection signal="pressed" from="VBoxContainer/VOLUMEN" to="." method="_on_jugar_pressed"]
+[connection signal="pressed" from="VBoxContainer/RESOLUCION" to="." method="_on_instrucciones_pressed"]
+[connection signal="pressed" from="VBoxContainer/ATRAS" to="." method="_on_creditos_pressed"]
+[connection signal="pressed" from="VBoxContainer/ATRAS" to="." method="_on_atras_pressed"]
